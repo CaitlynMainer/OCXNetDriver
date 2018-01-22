@@ -14,7 +14,7 @@ import org.dave.ocxnetdriver.driver.controller.DriverXnetController;
         version = OCXNetDriver.VERSION,
         guiFactory = OCXNetDriver.GUI_FACTORY,
         dependencies = "required-after:opencomputers;required-after:xnet",
-        acceptedMinecraftVersions = "[1.12,1.13)"
+        acceptedMinecraftVersions = "[1.10.2)"
 )
 public class OCXNetDriver {
     public static final String MODID = "ocxnetdriver";

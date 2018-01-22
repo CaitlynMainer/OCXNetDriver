@@ -6,7 +6,7 @@ import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.network.Visibility;
-import li.cil.oc.api.prefab.AbstractManagedEnvironment;
+import li.cil.oc.api.prefab.ManagedEnvironment;
 import mcjty.xnet.api.channels.IControllerContext;
 import mcjty.xnet.api.keys.SidedPos;
 import net.minecraft.block.state.IBlockState;
@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EnvironmentXnetController extends AbstractManagedEnvironment implements NamedBlock {
+public class EnvironmentXnetController extends ManagedEnvironment implements NamedBlock {
     protected final TileEntity tileEntity;
     protected final BlockPos controllerPos;
     protected final World controllerWorld;
@@ -312,15 +312,15 @@ public class EnvironmentXnetController extends AbstractManagedEnvironment implem
         IItemHandler targetHandler = targetTileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, targetSide);
 
         ItemStack sourceStackSim = handler.extractItem(slot-1, amount, true);
-        if(sourceStackSim == null || sourceStackSim.isEmpty()) {
+        if(sourceStackSim == null) {
             return new Object[]{ null, "can not extract from source slot" };
         }
 
         ItemStack returnStackSim = ItemHandlerHelper.insertItemStacked(targetHandler, sourceStackSim, true);
 
         int transferrableAmount = amount;
-        if(returnStackSim != null && !returnStackSim.isEmpty()) {
-            transferrableAmount = sourceStackSim.getCount() - returnStackSim.getCount();
+        if(returnStackSim != null) {
+            transferrableAmount = sourceStackSim.stackSize - returnStackSim.stackSize;
         }
 
         if(transferrableAmount > 0) {

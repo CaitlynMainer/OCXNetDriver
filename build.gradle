@@ -29,7 +29,7 @@ minecraft {
     version = "${config.minecraft.version}-${config.forge.version}"
     runDir = "run"
 
-    mappings = "snapshot_20161117"
+    mappings = "stable_29"
 }
 
 repositories {
