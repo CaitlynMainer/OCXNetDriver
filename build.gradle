@@ -18,7 +18,7 @@ file "build.properties" withReader {
 
 version = "${config.mod.version}"
 group= "org.dave.ocxnetdriver" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "ocxnetdriver"
+archivesBaseName = "ocxnetdriver-pcl"
 
 sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
 compileJava {
@@ -58,7 +58,7 @@ dependencies {
     deobfCompile "mezz.jei:jei_${config.minecraft.version}:${config.jei.version}:api"
     runtime "mezz.jei:jei_${config.minecraft.version}:${config.jei.version}"
 
-    compile "li.cil.oc:OpenComputers:MC${config.minecraft.version}-${config.oc.version}:api"
+    deobfCompile "li.cil.oc:OpenComputers:MC${config.minecraft.version}-${config.oc.version}"
 
     compile "com.github.mcjty:xnet:${config.xnet.version}"
     compile "com.github.mcjty:mcjtylib:${config.mcjtylib.version}"

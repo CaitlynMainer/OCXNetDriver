@@ -7,8 +7,8 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Davenonymous"],
-  "credits": "",
+  "authorList": ["Davenonymous", "MichiyoRavencroft"],
+  "credits": "Original author Davenonymous.  Backported to 1.10.2 by MichiyoRavencroft",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
